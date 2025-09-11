@@ -1,6 +1,6 @@
 /* Theme colors and basic variablesinitialization*/
 :root{
-  --bg:oklab(39.675% -0.023 -0.21327 / 0.938);
+  --bg:lch(97.58% 1.58 277.56);
   --card:#ffffff;
   --ink:#1f2937;
   --muted:#4b5563;
