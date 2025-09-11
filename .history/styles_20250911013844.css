@@ -1,0 +1,113 @@
+/* Theme colors and basi Variables ---------- */
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --ink:#1f2937;
+  --muted:#4b5563;
+  --accent:#0f766e;
+  --link:#2563eb;
+  --border:#e5e7eb;
+  --shadow:0 4px 16px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+
+/* ---------- Layout ---------- */
+header, main, footer{
+  max-width:960px;
+  margin:auto;
+  padding:0 1rem;
+}
+header{padding-top:1.25rem}
+main{padding:1rem 1rem 2rem}
+section, aside{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; margin:1rem 0; box-shadow:var(--shadow)}
+
+@media (min-width:900px){
+  /* two-column feel on wide screens */
+  .grid{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:1rem;
+  }
+}
+
+/* ---------- Header ---------- */
+header figure{
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+header img{
+  width:112px;
+  height:112px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid var(--border);
+  background:#fff;
+}
+header h1{margin:.25rem 0 0; font-size:clamp(1.6rem,3vw,2.2rem)}
+header p{margin:.25rem 0; color:var(--muted)}
+
+/* ---------- Nav ---------- */
+nav ul{
+  list-style:none;
+  padding:0; margin:.75rem 0 0;
+  display:flex; flex-wrap:wrap; gap:.5rem .75rem;
+}
+nav a{
+  display:inline-block;
+  padding:.4rem .7rem;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:999px;
+  text-decoration:none;
+  color:var(--ink);
+}
+nav a:hover{border-color:var(--accent); color:var(--accent)}
+
+/* ---------- Typography ---------- */
+h2{margin:.25rem 0 0.75rem; font-size:1.25rem}
+h3{margin:.5rem 0 .25rem; font-size:1.05rem}
+h4{margin:.5rem 0 .25rem; font-size:1rem; color:var(--muted)}
+p{margin:.5rem 0}
+ul{margin:.5rem 0 .25rem 1.25rem}
+li{margin:.25rem 0}
+
+/* ---------- Links ---------- */
+a{color:var(--link)}
+a:hover{opacity:.9}
+
+/* ---------- Skip link ---------- */
+a[href="#main"]{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+a[href="#main"]:focus{
+  position:fixed; left:1rem; top:1rem; width:auto; height:auto;
+  padding:.5rem .75rem; background:#fff; border:1px solid var(--border); border-radius:8px;
+  box-shadow:var(--shadow);
+}
+
+/* ---------- Footer ---------- */
+footer{padding:1.25rem 1rem 2.5rem; color:var(--muted); text-align:center}
+footer a{color:inherit; text-decoration:underline}
+
+/* ---------- Lists inside cards ---------- */
+section ul, aside ul{padding-left:1.1rem}
+section li::marker{color:var(--accent)}
+
+/* ---------- Print-friendly ---------- */
+@media print{
+  :root{--bg:#fff; --card:#fff; --border:#ddd}
+  body{font-size:12px}
+  nav, a[href="#main"], footer{display:none}
+  header, main{max-width:100%; padding:0}
+  section, aside{box-shadow:none; border-color:#ccc}
+  header img{border:none}
+}
